@@ -3,12 +3,15 @@
 #************ Property of Robotics Club IIT Delhi ****************
 
 
+
+#***************************************************************************
 # Set your variables here
 Proxy=true
 GitHub=true
 SSH=true
 Beagle=false
 
+#*********************************************************************************
 # Proxy settings
 if [ "$Proxy" = true ] ; then
 echo "PATH=\"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\"
@@ -35,7 +38,7 @@ Acquire::HTTPS::PROXY \"https://10.10.78.22:3128\";" > /etc/apt/apt.conf
 
 echo "IIT Delhi Proxy Settings done !!"
 fi
-
+#**********************************************************************
 # GitHub settings
 if [ "$GitHub" = true ] ; then 
 echo "[url \"https://github.com/\"]
@@ -49,7 +52,7 @@ git config --global user.name "Rahul5214"
  
 echo "Github Settings done !!"
 fi
-
+#**********************************************************************
 if [ "$SSH" = true ] ; then
 echo "HOST beagle
     HostName 192.168.7.2
@@ -57,6 +60,7 @@ echo "HOST beagle
 
 echo "SSH settings done !!"
 fi
+#**********************************************************************
     
 ############### Some extra Stuff for Beagle #################
 # for kernel 3.8
