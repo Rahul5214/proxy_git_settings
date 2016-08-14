@@ -47,6 +47,3 @@ fi
 
 
 ############### Some extra Stuff for Beagle #################
-# for kernel 3.8
-export SLOTS=/sys/devices/bone_capemgr.*/slots
-export PINS=/sys/kernel/debug/pinctrl/44e10800.pinmux/pins
