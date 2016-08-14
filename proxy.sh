@@ -3,9 +3,8 @@
 #************ Property of Robotics Club IIT Delhi ****************
 
 
-
 #***************************************************************************
-# Set your variables here
+# Set your boolean variables here
 Proxy=true
 GitHub=true
 SSH=true
@@ -70,5 +69,6 @@ export SLOTS=/sys/devices/bone_capemgr.*/slots >> ~/.bashrc
 export PINS=/sys/kernel/debug/pinctrl/44e10800.pinmux/pins >> ~/.bashrc
 source ~/.bashrc
 fi
+
 
 
