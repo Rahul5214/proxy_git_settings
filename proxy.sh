@@ -6,6 +6,7 @@
 # Set your variables here
 Proxy=true
 GitHub=true
+Beagle=false
 
 # Proxy settings
 if [ "$Proxy" = true ] ; then
@@ -31,7 +32,7 @@ Acquire::https::Proxy \"https://10.10.78.22:3128\";
 Acquire::HTTP::PROXY \"http://10.10.78.22:3128\";
 Acquire::HTTPS::PROXY \"https://10.10.78.22:3128\";" > /etc/apt/apt.conf
 
-echo "Done IIT Delhi Proxy Settings!!"
+echo "IIT Delhi Proxy Settings done !!"
 fi
 
 # GitHub settings
@@ -42,11 +43,14 @@ echo "[url \"https://github.com/\"]
     insteadOf = ssh://git@github.com:
     insteadOf = git@github.com:"  > /.gitconfig
 
-echo "Done Github Settings!!"
+echo "Github Settings done !!"
 fi
 
 
 ############### Some extra Stuff for Beagle #################
 # for kernel 3.8
+if [ "$Beagle" = true ] ; then
+echo "Setting Slots and pins path for beagle" 
 export SLOTS=/sys/devices/bone_capemgr.*/slots
 export PINS=/sys/kernel/debug/pinctrl/44e10800.pinmux/pins
+fi
