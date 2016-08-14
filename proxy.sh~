@@ -47,6 +47,7 @@ git config --global http.proxy http://10.10.78.22:3128
 git config --global user.email "rkhalliday1@gmail.com"
 git config --global user.name "Rahul5214"
  
+  
 echo "Github Settings done !!"
 fi
 
