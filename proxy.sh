@@ -44,3 +44,6 @@ echo "[url \"https://github.com/\"]
 
 echo "Done Github Settings!!"
 fi
+
+
+############### Some extra Stuff for Beagle #################
