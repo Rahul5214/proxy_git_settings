@@ -9,6 +9,7 @@ Proxy=true
 GitHub=true
 SSH=true
 PPA=true
+Release=xenial    # define you ubuntu or debian release
 Beagle=false
 
 #*********************************************************************************
@@ -42,25 +43,22 @@ fi
 
 if [ "$PPA" = true ] ; then
 # backup original sources.list file to sources.list.bak
-cd /etc/apt/
 
-# replace "xenial" with your ubuntu release 
-echo "# replace \"xenial\" with your ubuntu release
-# Binary packages IIT Delhi
+echo "# Binary packages IIT Delhi
 # ===============
-deb http://repo.iitd.ernet.in/ubuntu xenial main restricted universe multiverse               
-deb http://repo.iitd.ernet.in/ubuntu xenial-updates main restricted universe multiverse
-deb http://repo.iitd.ernet.in/ubuntu xenial-security main restricted universe multiverse
-# deb http://repo.iitd.ernet.in/ubuntu xenial-backports main restricted universe multiverse
-# deb http://repo.iitd.ernet.in/ubuntu xenial-proposed main restricted universe multiverse
+deb http://repo.iitd.ernet.in/ubuntu $Release main restricted universe multiverse               
+deb http://repo.iitd.ernet.in/ubuntu $Release-updates main restricted universe multiverse
+deb http://repo.iitd.ernet.in/ubuntu $Release-security main restricted universe multiverse
+# deb http://repo.iitd.ernet.in/ubuntu $Release-backports main restricted universe multiverse
+# deb http://repo.iitd.ernet.in/ubuntu $Release-proposed main restricted universe multiverse
 
 # Sources
 # =======
-# deb-src http://repo.iitd.ernet.in/ubuntu xenial main restricted universe multiverse
-# deb-src http://repo.iitd.ernet.in/ubuntu xenial-updates main restricted universe multiverse
-# deb-src http://repo.iitd.ernet.in/ubuntu xenial-security main restricted universe multiverse
-# deb-src http://repo.iitd.ernet.in/ubuntu xenial-backports main restricted universe multiverse
-# deb-src http://repo.iitd.ernet.in/ubuntu xenial-proposed main restricted universe multiverse" > /etc/apt/sources.list
+# deb-src http://repo.iitd.ernet.in/ubuntu $Release main restricted universe multiverse
+# deb-src http://repo.iitd.ernet.in/ubuntu $Release-updates main restricted universe multiverse
+# deb-src http://repo.iitd.ernet.in/ubuntu $Release-security main restricted universe multiverse
+# deb-src http://repo.iitd.ernet.in/ubuntu $Release-backports main restricted universe multiverse
+# deb-src http://repo.iitd.ernet.in/ubuntu $Release-proposed main restricted universe multiverse" > /etc/apt/sources.list
 
 echo "PPA settings done !!"
 fi
