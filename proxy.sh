@@ -8,6 +8,7 @@
 Proxy=true
 GitHub=true
 SSH=true
+PPA=true
 Beagle=false
 
 #*********************************************************************************
@@ -38,16 +39,45 @@ Acquire::HTTPS::PROXY \"https://10.10.78.22:3128\";" > /etc/apt/apt.conf
 echo "IIT Delhi Proxy Settings done !!"
 fi
 #**********************************************************************
+
+if [ "$PPA" = true ] ; then
+# backup original sources.list file to sources.list.bak
+cd /etc/apt/
+
+# replace "xenial" with your ubuntu release 
+echo "# replace \"xenial\" with your ubuntu release
+# Binary packages IIT Delhi
+# ===============
+deb http://repo.iitd.ernet.in/ubuntu xenial main restricted universe multiverse               
+deb http://repo.iitd.ernet.in/ubuntu xenial-updates main restricted universe multiverse
+deb http://repo.iitd.ernet.in/ubuntu xenial-security main restricted universe multiverse
+# deb http://repo.iitd.ernet.in/ubuntu xenial-backports main restricted universe multiverse
+# deb http://repo.iitd.ernet.in/ubuntu xenial-proposed main restricted universe multiverse
+
+# Sources
+# =======
+# deb-src http://repo.iitd.ernet.in/ubuntu xenial main restricted universe multiverse
+# deb-src http://repo.iitd.ernet.in/ubuntu xenial-updates main restricted universe multiverse
+# deb-src http://repo.iitd.ernet.in/ubuntu xenial-security main restricted universe multiverse
+# deb-src http://repo.iitd.ernet.in/ubuntu xenial-backports main restricted universe multiverse
+# deb-src http://repo.iitd.ernet.in/ubuntu xenial-proposed main restricted universe multiverse" > /etc/apt/sources.list
+
+echo "PPA settings done !!"
+fi
+
+
+#**********************************************************************
 # GitHub settings
 if [ "$GitHub" = true ] ; then 
 echo "[url \"https://github.com/\"]
     insteadOf = git://github.com/
     insteadOf = ssh://git@github.com:
-    insteadOf = git@github.com:"  > /.gitconfig
+    insteadOf = git@github.com:"  > ~/.gitconfig
 
 git config --global http.proxy http://10.10.78.22:3128    
 git config --global user.email "rkhalliday1@gmail.com"
 git config --global user.name "Rahul5214"
+git config --global push.default simple
  
 echo "Github Settings done !!"
 fi
