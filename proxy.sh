@@ -82,7 +82,7 @@ echo "[url \"https://github.com/\"]
 
 git config --global http.proxy http://10.10.78.22:3128    
 git config --global push.default simple
- 
+echo "export GIT_SSL_NO_VERIFY=1" >> ~/.bashrc
 echo "Github Settings done !!"
 fi
 
@@ -101,15 +101,20 @@ fi
 ############### Some extra Stuff for Beagle #################
 # for setting path variables for slots and pins.
 if [ "$Architecture" = "armv7l" ]; then 
+echo "export PINGROUPS=/sys/kernel/debug/pinctrl/44e10800.pinmux/pingroups
+export PINMUX=/sys/kernel/debug/pinctrl/44e10800.pinmux/pinmux-pins
+NODE_PATH=/usr/local/lib/node_modules" >> ~/.bashrc
+
 if [ "$Release" = "wheezy" ]; then 
-export SLOTS=/sys/devices/bone_capemgr.*/slots >> ~/.bashrc
-export PINS=/sys/kernel/debug/pinctrl/44e10800.pinmux/pins >> ~/.bashrc
+echo "export SLOTS=/sys/devices/bone_capemgr.*/slots
+export PINS=/sys/kernel/debug/pinctrl/44e10800.pinmux/pins" >> ~/.bashrc
 fi 
 
 if [ "$Release" = "jessie" ]; then
-export SLOTS=/sys/devices/platform/bone_capemgr/slots >> ~/.bashrc
-export PINS=/sys/kernel/debug/pinctrl/44e10800.pinmux/pins >> ~/.bashrc
+echo "export SLOTS=/sys/devices/platform/bone_capemgr/slots
+export PINS=/sys/kernel/debug/pinctrl/44e10800.pinmux/pins" >> ~/.bashrc 
 fi
+
 source ~/.bashrc
 echo "Settings for Slots and Pins path done!!"
 fi
