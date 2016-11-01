@@ -97,7 +97,10 @@ echo "SSH settings done !!"
 fi
 fi
 #**********************************************************************#
-    
+# miscellaneous Terminal setting to make life easier
+echo "alias update='sudo apt-get update'
+alias upgrade='sudo apt-get upgrade'" >> ~/.bashrc
+
 ############### Some extra Stuff for Beagle #################
 # for setting path variables for slots and pins.
 if [ "$Architecture" = "armv7l" ]; then 
