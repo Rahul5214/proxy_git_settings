@@ -1,5 +1,4 @@
 #!/bin/bash
-# Last updated on Sep 30 2016
 
 #************ Property of Robotics Club IIT Delhi ****************#
 
@@ -47,9 +46,9 @@ fi
 
 if [ "$PPA" = true ] ; then
 if [ "$Architecture" = "x86_64" ]; then
-if [ ! -f /etc/apt/sources.list.bak ];
+if [ ! -f /etc/apt/sources.list.bak ]; then
 # backup the original sources.list file to sources.list.bak
-then cp /etc/apt/sources.list /etc/apt/sources.list.bak
+cp /etc/apt/sources.list /etc/apt/sources.list.bak
 fi
 
 echo "# Binary packages IIT Delhi
@@ -98,8 +97,23 @@ fi
 fi
 #**********************************************************************#
 # miscellaneous Terminal setting to make life easier
+
+# only for laptop
+if [ "$Architecture" = "x86_64" ]; then 
+echo "alias proxy='cd /home/rahul/Downloads/beagle_setup/github_repos/proxy_git_settings'
+alias beagle_command='gedit /home/rahul/Downloads/beagle_setup/documentation/beagle_command &'" >> ~/.bashrc
+fi
+##############################
+# alias for beagel and laptop.
+
 echo "alias update='sudo apt-get update'
-alias upgrade='sudo apt-get upgrade'" >> ~/.bashrc
+alias upgrade='sudo apt-get upgrade'
+alias install='sudo apt-get install'
+alias purge='sudo apt-get purge'
+alias autoremove='sudo apt-get autoremove'
+alias cd..='cd ..' 
+alias nano='nano -c'
+alias shutdown='shutdown -h now'" >> ~/.bashrc
 
 ############### Some extra Stuff for Beagle #################
 # for setting path variables for slots and pins.
