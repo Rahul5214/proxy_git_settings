@@ -6,6 +6,6 @@ https://github.com/Rahul5214/proxy_git_settings.git
 
 Change permission of proxy.sh file using "chmod +x proxy.sh"
 
-Run from terminal using "sudo ./proxy.sh" 
+Run from terminal using `sudo ./proxy.sh` 
 
 
